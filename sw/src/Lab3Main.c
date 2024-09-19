@@ -38,6 +38,8 @@
 #include "../inc/tm4c123gh6pm.h"
 #include "../inc/Timer0A.h"
 #include "Lab3.h"
+#include "Switches.h"
+
 // ---------- Prototypes   -------------------------
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -46,8 +48,15 @@ int main(void){
   DisableInterrupts();
   PLL_Init(Bus80MHz);    // bus clock at 80 MHz
   // write this
+	Switches_Init();
   EnableInterrupts();
   while(1){
+		PE0_Data();
+		PE1_Data();
+		PE2_Data();
+		PE3_Data();
+		PE4_Data();
+		Switches_Data();
       // write this
   }
 }
